@@ -34,20 +34,20 @@ public class UserController {
         return users;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Users getByID(@PathVariable Integer id){
         Users usereById = userService.getById(id);
         return usereById;
 
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = userService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody UserDto userDto){
         Result result = userService.edit(id, userDto);
         return result;

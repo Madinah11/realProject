@@ -26,19 +26,19 @@ public class MeasurmentController {
         return measurementList;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Measurement getByID(@PathVariable Integer id){
         Measurement measurement = measurementService.getById(id);
         return measurement;
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = measurementService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody Measurement measurement){
         Result result = measurementService.edit(id, measurement);
         return result;

@@ -16,9 +16,9 @@ public class SupplierService {
     SupplierRepository supplierRepository;
 
     public Result add(Supplier supplier) {
-        boolean existsByName = supplierRepository.existsByName(supplier.getName());
-        if (existsByName)
-            return new Result("There is such a supplier", false);
+        boolean existsByPhoneNumber = supplierRepository.existsByPhoneNumber(supplier.getPhoneNumber());
+        if (existsByPhoneNumber)
+            return new Result("There is such a phone number of supplier", false);
         supplierRepository.save(supplier);
         return new Result("Currency saved", true);
     }
@@ -51,9 +51,9 @@ public class SupplierService {
         if (!optionalSupplier.isPresent())
             return new Result("Supplier not found", false);
         Supplier supplier1 = optionalSupplier.get();
-        boolean existsByName = supplierRepository.existsByName(supplier.getName());
-        if (existsByName)
-            return new Result("There is such a supplier", false);
+        boolean existsByPhoneNumber = supplierRepository.existsByPhoneNumber(supplier.getPhoneNumber());
+        if (existsByPhoneNumber)
+            return new Result("There is such a phone number of supplier", false);
         supplier1.setName(supplier.getName());
         supplier1.setPhoneNumber(supplier.getPhoneNumber());
         supplierRepository.save(supplier1);

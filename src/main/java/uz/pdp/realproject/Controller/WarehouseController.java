@@ -28,19 +28,19 @@ public class WarehouseController {
         return warehouses;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Warehouse getByID(@PathVariable Integer id){
         Warehouse byId = warehouseService.getById(id);
         return byId;
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result delete = warehouseService.delete(id);
         return delete;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody Warehouse warehouse){
         Result result = warehouseService.edit(id,warehouse);
         return result;

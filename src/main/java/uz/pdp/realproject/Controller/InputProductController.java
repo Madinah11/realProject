@@ -31,22 +31,23 @@ public class InputProductController {
         return inputProducts;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public InputProduct getByID(@PathVariable Integer id){
         InputProduct InputProductbyId = inputProductService.getById(id);
         return InputProductbyId;
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = inputProductService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody InputProductDto inputProductDto){
         Result result = inputProductService.edit(id, inputProductDto);
         return result;
     }
+
 
 }

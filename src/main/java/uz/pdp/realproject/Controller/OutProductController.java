@@ -31,19 +31,19 @@ public class OutProductController {
         return outputProducts;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public OutputProduct getByID(@PathVariable Integer id){
         OutputProduct outputProductServiceById = outputProductService.getById(id);
         return outputProductServiceById;
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = outputProductService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody OutputProductDto outputProductDto){
         Result result = outputProductService.edit(id, outputProductDto);
         return result;

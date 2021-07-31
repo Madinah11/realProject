@@ -18,13 +18,16 @@ public class CategoryService {
 
     public Result add(CategoryDto categoryDto) {
         Category category1 = new Category();
+        category1.setName(categoryDto.getName());
+        if (categoryDto.getParentCategoryId()==null){
+            category1.setParentCategory(null);
+        }
         if (categoryDto.getParentCategoryId() != null) {
             Optional<Category> optionalCategory = categoryRepository.findById(categoryDto.getParentCategoryId());
             if (!optionalCategory.isPresent())
                 return new Result("such a parent category does not exist", false);
-            Category category = optionalCategory.get();
-            category1.setName(categoryDto.getName());
-            category1.setParentCategory(category);
+            Category parentCategory = optionalCategory.get();
+            category1.setParentCategory(parentCategory);
         }
         categoryRepository.save(category1);
         return new Result("Category saved", true);
@@ -58,14 +61,15 @@ public class CategoryService {
         if (!optionalCategory.isPresent())
             return new Result("Category not found", false);
         Category editingCategory = optionalCategory.get();
+        editingCategory.setName(categoryDto.getName());
         if (categoryDto.getParentCategoryId() != null) {
             Optional<Category> optionalCategory2 = categoryRepository.findById(categoryDto.getParentCategoryId());
             if (!optionalCategory2.isPresent())
                 return new Result("such a parent category does not exist", false);
             Category parentCategory = optionalCategory2.get();
             editingCategory.setParentCategory(parentCategory);
-            editingCategory.setName(categoryDto.getName());
         }
+
         categoryRepository.save(editingCategory);
         return new Result("Category edited", true);
     }

@@ -28,20 +28,20 @@ public class SupplierController {
         return suppliers;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Supplier getByID(@PathVariable Integer id){
         Supplier supplier = supplierService.getById(id);
         return supplier;
 
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = supplierService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody Supplier supplier){
         Result result = supplierService.edit(id, supplier);
         return result;

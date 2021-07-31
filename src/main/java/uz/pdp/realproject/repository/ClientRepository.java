@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import uz.pdp.realproject.entity.Client;
 
 public interface ClientRepository extends JpaRepository<Client,Integer> {
-    boolean existsByName(String name);
+    boolean existsByPhoneNumber(String phoneNumber);
 }

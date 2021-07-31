@@ -31,20 +31,20 @@ public class OutputController {
         return outputs;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Output getByID(@PathVariable Integer id){
         Output byId = outputService.getById(id);
         return byId;
 
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = outputService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody OutputDto outputDto){
         Result result = outputService.edit(id, outputDto);
         return result;

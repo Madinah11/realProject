@@ -28,20 +28,20 @@ public class ProductController {
         return products;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Product getByID(@PathVariable Integer id){
         Product productById = productService.getById(id);
         return productById;
 
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = productService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody ProductDto productDto){
         Result result = productService.edit(id, productDto);
         return result;

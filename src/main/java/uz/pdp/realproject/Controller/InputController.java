@@ -31,20 +31,20 @@ public class InputController {
         return inputs;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Input getByID(@PathVariable Integer id){
         Input input = inputService.getById(id);
         return input;
 
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = inputService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody InputDto inputDto){
         Result result = inputService.edit(id, inputDto);
         return result;

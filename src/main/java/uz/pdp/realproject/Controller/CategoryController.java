@@ -29,20 +29,20 @@ public class CategoryController {
         return categories;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Category getByID(@PathVariable Integer id){
         Category categoryServiceById = categoryService.getById(id);
         return categoryServiceById;
 
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = categoryService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody CategoryDto categoryDto){
         Result result = categoryService.edit(id, categoryDto);
         return result;

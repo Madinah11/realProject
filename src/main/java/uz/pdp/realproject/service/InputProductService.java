@@ -80,5 +80,7 @@ public class InputProductService {
         editingInputProduct.setExpireDate(editingInputProduct.getExpireDate());
         inputProductRepository.save(editingInputProduct);
         return new Result("InputProduct edited", true);
+
+
     }
 }

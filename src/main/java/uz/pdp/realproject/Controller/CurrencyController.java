@@ -29,19 +29,19 @@ public class CurrencyController {
         return currencies;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Currency getByID(@PathVariable Integer id){
         Currency currency = currencyService.getById(id);
         return currency;
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = currencyService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody Currency currency){
         Result result = currencyService.edit(id, currency);
         return result;

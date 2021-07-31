@@ -28,19 +28,19 @@ public class ClientController {
         return clients;
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Client getByID(@PathVariable Integer id){
         Client byId = clientService.getById(id);
         return byId;
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = clientService.delete(id);
         return result;
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Result edit(@PathVariable Integer id,@RequestBody Client client){
         Result result = clientService.edit(id,client);
         return result;

@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import uz.pdp.realproject.entity.template.AbsEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Data
@@ -14,5 +15,6 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Supplier extends AbsEntity {
+    @Column(nullable = false,unique = true)
     private String phoneNumber;
 }

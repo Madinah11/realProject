@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -26,7 +27,7 @@ public class InputProduct {
     private Double price;
 
     @Column(nullable = false)
-    private Date expireDate;
+    private LocalDateTime expireDate;
 
     @ManyToOne
     private Input input;

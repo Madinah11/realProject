@@ -17,9 +17,9 @@ public class ClientService {
     ClientRepository clientRepository;
 
     public Result add( Client client){
-        boolean existsByName = clientRepository.existsByName(client.getName());
+        boolean existsByName = clientRepository.existsByPhoneNumber(client.getPhoneNumber());
         if (existsByName)
-            return new Result("There is such a client",false);
+            return new Result("There is such a phone number",false);
         clientRepository.save(client);
         return new Result("Client saved",true);
     }
@@ -52,11 +52,11 @@ public class ClientService {
         if (!optionalClient.isPresent())
             return new Result("Client not found",false);
         Client client1 = optionalClient.get();
-
-        boolean existsByName = clientRepository.existsByName(client.getName());
+        boolean existsByName = clientRepository.existsByPhoneNumber(client.getPhoneNumber());
         if (existsByName)
-            return new Result("There is such a client",false);
+            return new Result("There is such a phone number",false);
         client1.setName(client.getName());
+        client1.setPhoneNumber(client.getPhoneNumber());
         clientRepository.save(client1);
         return new Result("Client edited",true);
 
